@@ -11,6 +11,7 @@
 		227C440F2B66673B00BC7BB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C440E2B66673B00BC7BB5 /* ContentView.swift */; };
 		227C44112B66673C00BC7BB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 227C44102B66673C00BC7BB5 /* Assets.xcassets */; };
 		227C44142B66673C00BC7BB5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 227C44132B66673C00BC7BB5 /* Preview Assets.xcassets */; };
+		227C44542B667CF900BC7BB5 /* NFCReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C44532B667CF900BC7BB5 /* NFCReader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,9 @@
 		227C440E2B66673B00BC7BB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		227C44102B66673C00BC7BB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		227C44132B66673C00BC7BB5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		227C44512B667C5800BC7BB5 /* tagblockmvp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tagblockmvp.entitlements; sourceTree = "<group>"; };
+		227C44522B667CAB00BC7BB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		227C44532B667CF900BC7BB5 /* NFCReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +55,11 @@
 		227C440B2B66673B00BC7BB5 /* tagblockmvp */ = {
 			isa = PBXGroup;
 			children = (
+				227C44522B667CAB00BC7BB5 /* Info.plist */,
+				227C44512B667C5800BC7BB5 /* tagblockmvp.entitlements */,
 				227C440C2B66673B00BC7BB5 /* tagblockmvpApp.swift */,
 				227C440E2B66673B00BC7BB5 /* ContentView.swift */,
+				227C44532B667CF900BC7BB5 /* NFCReader.swift */,
 				227C44102B66673C00BC7BB5 /* Assets.xcassets */,
 				227C44122B66673C00BC7BB5 /* Preview Content */,
 			);
@@ -139,6 +146,7 @@
 			files = (
 				227C440F2B66673B00BC7BB5 /* ContentView.swift in Sources */,
 				227C440D2B66673B00BC7BB5 /* tagblockmvpApp.swift in Sources */,
+				227C44542B667CF900BC7BB5 /* NFCReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,12 +277,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = tagblockmvp/tagblockmvp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tagblockmvp/Preview Content\"";
 				DEVELOPMENT_TEAM = AFXX47U8YN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = tagblockmvp/Info.plist;
+				INFOPLIST_KEY_NFCReaderUsageDescription = "We need to access NFC functionality";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -298,12 +309,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = tagblockmvp/tagblockmvp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tagblockmvp/Preview Content\"";
 				DEVELOPMENT_TEAM = AFXX47U8YN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = tagblockmvp/Info.plist;
+				INFOPLIST_KEY_NFCReaderUsageDescription = "We need to access NFC functionality";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
