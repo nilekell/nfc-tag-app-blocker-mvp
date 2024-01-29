@@ -7,12 +7,19 @@
 
 import Foundation
 import CoreNFC
+import SwiftUI
 
 class NFCReader: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
     
     var data: Data?
     var nfcSession: NFCNDEFReaderSession?
     var str: String = ""
+    
+    var viewModel: DeviceActivityViewModel?
+    
+    init(viewModel: DeviceActivityViewModel) {
+        self.viewModel = viewModel
+    }
     
     func scan() {
         nfcSession = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: true)
@@ -42,6 +49,9 @@ class NFCReader: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
             let firstNDEFMessage = messages[0]
             self.data = firstNDEFMessage.records.first?.payload ?? Data()
             self.str = String(decoding: self.data ?? Data(), as: UTF8.self)
+            
+            // call updates here
+            self.nfcSession = nil
         }
     }
     
@@ -90,6 +100,9 @@ class NFCReader: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
                             self.invalidateSessionWithMessage(session: session, message: "Unable to read data on tag.")
                             return
                         }
+                        
+                        // call updates here for initial testing
+                        self.nfcSession = nil
                     })
                     
                 @unknown default:

@@ -12,6 +12,12 @@
 		227C44112B66673C00BC7BB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 227C44102B66673C00BC7BB5 /* Assets.xcassets */; };
 		227C44142B66673C00BC7BB5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 227C44132B66673C00BC7BB5 /* Preview Assets.xcassets */; };
 		227C44542B667CF900BC7BB5 /* NFCReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C44532B667CF900BC7BB5 /* NFCReader.swift */; };
+		227C44582B66A9E000BC7BB5 /* DeviceActivityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C44572B66A9E000BC7BB5 /* DeviceActivityExtensions.swift */; };
+		227C445A2B66AA0900BC7BB5 /* DeviceActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C44592B66AA0900BC7BB5 /* DeviceActivityViewModel.swift */; };
+		227C445C2B66AB5100BC7BB5 /* MyMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C445B2B66AB5100BC7BB5 /* MyMonitor.swift */; };
+		227C445E2B66AD0400BC7BB5 /* SelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C445D2B66AD0400BC7BB5 /* SelectionModel.swift */; };
+		227C44602B66F30E00BC7BB5 /* AppModeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C445F2B66F30E00BC7BB5 /* AppModeModel.swift */; };
+		227C44622B66F79C00BC7BB5 /* PersistenceServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C44612B66F79C00BC7BB5 /* PersistenceServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +29,12 @@
 		227C44512B667C5800BC7BB5 /* tagblockmvp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tagblockmvp.entitlements; sourceTree = "<group>"; };
 		227C44522B667CAB00BC7BB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		227C44532B667CF900BC7BB5 /* NFCReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCReader.swift; sourceTree = "<group>"; };
+		227C44572B66A9E000BC7BB5 /* DeviceActivityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityExtensions.swift; sourceTree = "<group>"; };
+		227C44592B66AA0900BC7BB5 /* DeviceActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityViewModel.swift; sourceTree = "<group>"; };
+		227C445B2B66AB5100BC7BB5 /* MyMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMonitor.swift; sourceTree = "<group>"; };
+		227C445D2B66AD0400BC7BB5 /* SelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionModel.swift; sourceTree = "<group>"; };
+		227C445F2B66F30E00BC7BB5 /* AppModeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModeModel.swift; sourceTree = "<group>"; };
+		227C44612B66F79C00BC7BB5 /* PersistenceServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +68,15 @@
 			isa = PBXGroup;
 			children = (
 				227C44522B667CAB00BC7BB5 /* Info.plist */,
+				227C44612B66F79C00BC7BB5 /* PersistenceServiceProtocol.swift */,
 				227C44512B667C5800BC7BB5 /* tagblockmvp.entitlements */,
 				227C440C2B66673B00BC7BB5 /* tagblockmvpApp.swift */,
 				227C440E2B66673B00BC7BB5 /* ContentView.swift */,
+				227C44572B66A9E000BC7BB5 /* DeviceActivityExtensions.swift */,
+				227C445B2B66AB5100BC7BB5 /* MyMonitor.swift */,
+				227C445F2B66F30E00BC7BB5 /* AppModeModel.swift */,
+				227C445D2B66AD0400BC7BB5 /* SelectionModel.swift */,
+				227C44592B66AA0900BC7BB5 /* DeviceActivityViewModel.swift */,
 				227C44532B667CF900BC7BB5 /* NFCReader.swift */,
 				227C44102B66673C00BC7BB5 /* Assets.xcassets */,
 				227C44122B66673C00BC7BB5 /* Preview Content */,
@@ -145,7 +163,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				227C440F2B66673B00BC7BB5 /* ContentView.swift in Sources */,
+				227C445A2B66AA0900BC7BB5 /* DeviceActivityViewModel.swift in Sources */,
 				227C440D2B66673B00BC7BB5 /* tagblockmvpApp.swift in Sources */,
+				227C44622B66F79C00BC7BB5 /* PersistenceServiceProtocol.swift in Sources */,
+				227C44582B66A9E000BC7BB5 /* DeviceActivityExtensions.swift in Sources */,
+				227C44602B66F30E00BC7BB5 /* AppModeModel.swift in Sources */,
+				227C445E2B66AD0400BC7BB5 /* SelectionModel.swift in Sources */,
+				227C445C2B66AB5100BC7BB5 /* MyMonitor.swift in Sources */,
 				227C44542B667CF900BC7BB5 /* NFCReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,7 +229,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -262,7 +286,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

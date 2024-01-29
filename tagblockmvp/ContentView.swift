@@ -10,32 +10,37 @@ import FamilyControls
 
 struct ContentView: View {
     
-    @State var isLockedMode = false
+    @StateObject var viewModel = DeviceActivityViewModel.shared
+    
     @State var selectionToDiscourage = FamilyActivitySelection()
     @State var isPresented = false
-    @State var reader = NFCReader()
     
     var body: some View {
         VStack {
             Text("App Blocker")
                 .padding()
+            
             Button("Select apps to block") { isPresented = true }
-                   .familyActivityPicker(isPresented: $isPresented,
-                                         selection: $selectionToDiscourage)
-                   .padding()
-            Button(action: {
-                reader.scan()
-            }, label: {
+                .padding()
+                .familyActivityPicker(isPresented: $isPresented,
+                                      selection: $selectionToDiscourage)
+
+            Button(action: scanButtonPressed, label: {
                 Text("Scan tag")
             })
+            .padding()
             
-            // Displaying the scanned data
-            Text(reader.str)
+            Text("Restricted mode: \(viewModel.appModeModel.isLocked.description)")
                 .padding()
         }
-        .padding()
+    }
+    
+    func scanButtonPressed() {
+        viewModel.startNFCSensing()
     }
 }
+
+
 
 #Preview {
     ContentView()
