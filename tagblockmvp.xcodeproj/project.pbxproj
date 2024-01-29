@@ -11,7 +11,6 @@
 		227C440F2B66673B00BC7BB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C440E2B66673B00BC7BB5 /* ContentView.swift */; };
 		227C44112B66673C00BC7BB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 227C44102B66673C00BC7BB5 /* Assets.xcassets */; };
 		227C44142B66673C00BC7BB5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 227C44132B66673C00BC7BB5 /* Preview Assets.xcassets */; };
-		227C44542B667CF900BC7BB5 /* NFCReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C44532B667CF900BC7BB5 /* NFCReader.swift */; };
 		227C44582B66A9E000BC7BB5 /* DeviceActivityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C44572B66A9E000BC7BB5 /* DeviceActivityExtensions.swift */; };
 		227C445A2B66AA0900BC7BB5 /* DeviceActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C44592B66AA0900BC7BB5 /* DeviceActivityViewModel.swift */; };
 		227C445C2B66AB5100BC7BB5 /* MyMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C445B2B66AB5100BC7BB5 /* MyMonitor.swift */; };
@@ -28,7 +27,6 @@
 		227C44132B66673C00BC7BB5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		227C44512B667C5800BC7BB5 /* tagblockmvp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tagblockmvp.entitlements; sourceTree = "<group>"; };
 		227C44522B667CAB00BC7BB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		227C44532B667CF900BC7BB5 /* NFCReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCReader.swift; sourceTree = "<group>"; };
 		227C44572B66A9E000BC7BB5 /* DeviceActivityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityExtensions.swift; sourceTree = "<group>"; };
 		227C44592B66AA0900BC7BB5 /* DeviceActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityViewModel.swift; sourceTree = "<group>"; };
 		227C445B2B66AB5100BC7BB5 /* MyMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMonitor.swift; sourceTree = "<group>"; };
@@ -77,7 +75,6 @@
 				227C445F2B66F30E00BC7BB5 /* AppModeModel.swift */,
 				227C445D2B66AD0400BC7BB5 /* SelectionModel.swift */,
 				227C44592B66AA0900BC7BB5 /* DeviceActivityViewModel.swift */,
-				227C44532B667CF900BC7BB5 /* NFCReader.swift */,
 				227C44102B66673C00BC7BB5 /* Assets.xcassets */,
 				227C44122B66673C00BC7BB5 /* Preview Content */,
 			);
@@ -170,7 +167,6 @@
 				227C44602B66F30E00BC7BB5 /* AppModeModel.swift in Sources */,
 				227C445E2B66AD0400BC7BB5 /* SelectionModel.swift in Sources */,
 				227C445C2B66AB5100BC7BB5 /* MyMonitor.swift in Sources */,
-				227C44542B667CF900BC7BB5 /* NFCReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
