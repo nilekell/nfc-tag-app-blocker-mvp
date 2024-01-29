@@ -17,6 +17,7 @@
 		227C445E2B66AD0400BC7BB5 /* SelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C445D2B66AD0400BC7BB5 /* SelectionModel.swift */; };
 		227C44602B66F30E00BC7BB5 /* AppModeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C445F2B66F30E00BC7BB5 /* AppModeModel.swift */; };
 		227C44622B66F79C00BC7BB5 /* PersistenceServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C44612B66F79C00BC7BB5 /* PersistenceServiceProtocol.swift */; };
+		227C44642B67D1CB00BC7BB5 /* MyShieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C44632B67D1CB00BC7BB5 /* MyShieldConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		227C445D2B66AD0400BC7BB5 /* SelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionModel.swift; sourceTree = "<group>"; };
 		227C445F2B66F30E00BC7BB5 /* AppModeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModeModel.swift; sourceTree = "<group>"; };
 		227C44612B66F79C00BC7BB5 /* PersistenceServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceServiceProtocol.swift; sourceTree = "<group>"; };
+		227C44632B67D1CB00BC7BB5 /* MyShieldConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShieldConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				227C440E2B66673B00BC7BB5 /* ContentView.swift */,
 				227C44572B66A9E000BC7BB5 /* DeviceActivityExtensions.swift */,
 				227C445B2B66AB5100BC7BB5 /* MyMonitor.swift */,
+				227C44632B67D1CB00BC7BB5 /* MyShieldConfiguration.swift */,
 				227C445F2B66F30E00BC7BB5 /* AppModeModel.swift */,
 				227C445D2B66AD0400BC7BB5 /* SelectionModel.swift */,
 				227C44592B66AA0900BC7BB5 /* DeviceActivityViewModel.swift */,
@@ -159,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227C44642B67D1CB00BC7BB5 /* MyShieldConfiguration.swift in Sources */,
 				227C440F2B66673B00BC7BB5 /* ContentView.swift in Sources */,
 				227C445A2B66AA0900BC7BB5 /* DeviceActivityViewModel.swift in Sources */,
 				227C440D2B66673B00BC7BB5 /* tagblockmvpApp.swift in Sources */,

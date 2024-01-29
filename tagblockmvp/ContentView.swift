@@ -22,6 +22,7 @@ struct ContentView: View {
             
             Button("Select apps to block") { isPresented = true }
                 .padding()
+                .disabled(viewModel.appModeModel.isLocked)
                 .familyActivityPicker(isPresented: $isPresented,
                                       selection: $selectionToDiscourage)
 
@@ -32,6 +33,9 @@ struct ContentView: View {
             
             Text("Restricted mode: \(viewModel.appModeModel.isLocked.description)")
                 .padding()
+        }
+        .onChange(of: selectionToDiscourage) { newSelection in
+            viewModel.updateSelection(newSelection)
         }
     }
     

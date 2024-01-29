@@ -8,6 +8,7 @@
 import DeviceActivity
 import SwiftUI
 import CoreNFC
+import FamilyControls
 
 class DeviceActivityViewModel: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
     // singleton instance
@@ -15,19 +16,13 @@ class DeviceActivityViewModel: NSObject, ObservableObject, NFCNDEFReaderSessionD
     
     @Published var appModeModel: AppModeModel {
         didSet {
-            persistenceService.save(isLocked: appModeModel.isLocked)
+            persistenceService.saveIsLocked(isLocked: appModeModel.isLocked)
         }
     }
     
-    private let persistenceService = UserDefaultsPersistenceService()
+    private let persistenceService = UserDefaultsPersistenceService.shared
     private let myMonitor = MyMonitor()
     private let selectionModel = SelectionModel()
-    private let center = DeviceActivityCenter()
-    private let schedule = DeviceActivitySchedule(
-        intervalStart: DateComponents(hour: 0, minute: 0),
-        intervalEnd: DateComponents(hour: 23, minute: 59),
-        repeats: true
-    )
     
     private var nfcSession: NFCNDEFReaderSession?
     
@@ -35,16 +30,15 @@ class DeviceActivityViewModel: NSObject, ObservableObject, NFCNDEFReaderSessionD
         // getting data to determine whether app is in locked mode or not
         let isLocked = persistenceService.loadIsLocked()
         self.appModeModel = AppModeModel(isLocked: isLocked)
-        
-        do {
-            // starting activity monitoring
-            try center.startMonitoring(.daily, during: schedule)
-        } catch {
-            print("Error starting device activity monitoring: \(error)")
-        }
     }
     
     // Application Monitoring logic
+    
+    // Method to update the selection
+    func updateSelection(_ newSelection: FamilyActivitySelection) {
+        print("updating app selection")
+        self.selectionModel.selectionToDiscourage = newSelection
+    }
     
     func toggleApplicationMode() {
         DispatchQueue.main.async {
