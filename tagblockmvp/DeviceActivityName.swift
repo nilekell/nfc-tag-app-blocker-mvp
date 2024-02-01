@@ -8,6 +8,7 @@
 import Foundation
 import DeviceActivity
 
+// Used for declaring DeviceActivityCenter().startMonitoring(.daily...)
 extension DeviceActivityName {
     static let daily = Self("daily")
 }
