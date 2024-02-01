@@ -23,7 +23,7 @@ class DeviceActivityViewModel: NSObject, ObservableObject, NFCNDEFReaderSessionD
     
     // Managing selected apps to block logic
     
-    @Published var selectionModel = SelectionModel()
+    @Published var selectionModel = SelectionModel.shared
     
     var selectionToDiscourage: FamilyActivitySelection {
         // retrieves current value of selectionToDiscourage from SelectionModel
@@ -80,9 +80,7 @@ class DeviceActivityViewModel: NSObject, ObservableObject, NFCNDEFReaderSessionD
     
     private func startMonitoring() {
         // Here you can start monitoring and set the initial shielding based on the model
-        let applications = selectionModel.selectionToDiscourage
-        print(myMonitor.access)
-        myMonitor.setApplicationsToShield(applications: applications.applicationTokens)
+        myMonitor.setApplicationsToShield()
         appModeModel.isLocked = true
     }
     

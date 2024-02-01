@@ -10,6 +10,9 @@ import FamilyControls
 
 // represents currently discouraged apps
 class SelectionModel {
+    // singleton instance
+    static let shared = SelectionModel()
+    
     var selectionToDiscourage: FamilyActivitySelection {
         didSet {
             UserDefaultsPersistenceService.shared.saveSelection(selectionToDiscourage)
@@ -19,14 +22,10 @@ class SelectionModel {
     init(selection: FamilyActivitySelection? = nil) {
         if let selection = selection {
             // Initialize with the given selection
-            print("SelectionModel: init with given selection:")
-            for application in selection.applications {
-                print("\(application.localizedDisplayName?.description ?? "unknown name")")
-            }
+            print("SelectionModel: init with given selection")
             self.selectionToDiscourage = selection
-            
         } else {
-            print("SelectionModel: init with selection loaded from user defaults:")
+            print("SelectionModel: init with selection loaded from user defaults")
             self.selectionToDiscourage = UserDefaultsPersistenceService.shared.loadSelection() ?? FamilyActivitySelection()
             print("num of loaded selections: \(self.selectionToDiscourage.applications.count)")
         }
