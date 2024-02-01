@@ -9,6 +9,7 @@ import DeviceActivity
 import SwiftUI
 import CoreNFC
 import FamilyControls
+import DeviceActivityMonitorExtension
 
 class DeviceActivityViewModel: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
     // singleton instance
@@ -21,8 +22,15 @@ class DeviceActivityViewModel: NSObject, ObservableObject, NFCNDEFReaderSessionD
     }
     
     private let persistenceService = UserDefaultsPersistenceService.shared
-    private let myMonitor = MyMonitor()
+    private let myMonitor = DeviceActivityMonitorExtension()
     private let selectionModel = SelectionModel()
+    
+    private let center = DeviceActivityCenter()
+    private let schedule = DeviceActivitySchedule(
+        intervalStart: DateComponents(hour: 0, minute: 0),
+        intervalEnd: DateComponents(hour: 23, minute: 59),
+        repeats: true
+    )
     
     private var nfcSession: NFCNDEFReaderSession?
     
@@ -30,6 +38,11 @@ class DeviceActivityViewModel: NSObject, ObservableObject, NFCNDEFReaderSessionD
         // getting data to determine whether app is in locked mode or not
         let isLocked = persistenceService.loadIsLocked()
         self.appModeModel = AppModeModel(isLocked: isLocked)
+        do {
+            try self.center.startMonitoring(.daily, during: schedule)
+        } catch {
+            print("Failed to start monitoring.")
+        }
     }
     
     // Application Monitoring logic
@@ -55,6 +68,7 @@ class DeviceActivityViewModel: NSObject, ObservableObject, NFCNDEFReaderSessionD
     private func startMonitoring() {
         // Here you can start monitoring and set the initial shielding based on the model
         let applications = selectionModel.selectionToDiscourage
+        print(myMonitor.access)
         myMonitor.setApplicationsToShield(applications: applications.applicationTokens)
         appModeModel.isLocked = true
     }
