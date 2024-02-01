@@ -35,12 +35,8 @@ class UserDefaultsPersistenceService: PersistenceServiceProtocol {
     func saveSelection(_ selection: FamilyActivitySelection) {
         if let data = try? JSONEncoder().encode(selection) {
             storage.set(data, forKey: "discouragedApplications")
-            
-            print("updated new selection:")
-            for application in selection.applications {
-                print("\(application.localizedDisplayName?.description ?? "unknown name")")
-            }
         }
+        print("selection saved")
     }
     
     func loadSelection() -> FamilyActivitySelection? {
