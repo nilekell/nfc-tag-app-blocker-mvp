@@ -11,8 +11,6 @@ import FamilyControls
 struct ContentView: View {
     
     @StateObject var viewModel = DeviceActivityViewModel.shared
-    
-    @State var selectionToDiscourage = FamilyActivitySelection()
     @State var isPresented = false
     
     var body: some View {
@@ -24,8 +22,8 @@ struct ContentView: View {
                 .padding()
                 .disabled(viewModel.appModeModel.isLocked)
                 .familyActivityPicker(isPresented: $isPresented,
-                                      selection: $selectionToDiscourage)
-
+                                      selection: $viewModel.selectionToDiscourage)
+            
             Button(action: scanButtonPressed, label: {
                 Text("Scan tag")
             })
@@ -34,10 +32,11 @@ struct ContentView: View {
             Text("Restricted mode: \(viewModel.appModeModel.isLocked.description)")
                 .padding()
         }
-        .onChange(of: selectionToDiscourage) { newSelection in
+        .onChange(of: viewModel.selectionModel.selectionToDiscourage) { newSelection in
             viewModel.updateSelection(newSelection)
         }
     }
+    
     
     func scanButtonPressed() {
         viewModel.startNFCSensing()

@@ -21,12 +21,14 @@ class SelectionModel {
             // Initialize with the given selection
             print("SelectionModel: init with given selection:")
             for application in selection.applications {
-                print("\(application.localizedDisplayName ?? "unknown name")")
+                print("\(application.localizedDisplayName?.description ?? "unknown name")")
             }
             self.selectionToDiscourage = selection
             
         } else {
+            print("SelectionModel: init with selection loaded from user defaults:")
             self.selectionToDiscourage = UserDefaultsPersistenceService.shared.loadSelection() ?? FamilyActivitySelection()
+            print("num of loaded selections: \(self.selectionToDiscourage.applications.count)")
         }
     }
 }

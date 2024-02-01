@@ -21,9 +21,23 @@ class DeviceActivityViewModel: NSObject, ObservableObject, NFCNDEFReaderSessionD
         }
     }
     
+    // Managing selected apps to block logic
+    
+    @Published var selectionModel = SelectionModel()
+    
+    var selectionToDiscourage: FamilyActivitySelection {
+        // retrieves current value of selectionToDiscourage from SelectionModel
+        get { selectionModel.selectionToDiscourage }
+        set { selectionModel.selectionToDiscourage = newValue }
+    }
+    
+    // Method to update selectionToDiscourage
+    func updateSelection(_ newSelection: FamilyActivitySelection) {
+        self.selectionModel.selectionToDiscourage = newSelection
+    }
+    
     private let persistenceService = UserDefaultsPersistenceService.shared
     private let myMonitor = DeviceActivityMonitorExtension()
-    private let selectionModel = SelectionModel()
     
     private let center = DeviceActivityCenter()
     private let schedule = DeviceActivitySchedule(
@@ -46,12 +60,6 @@ class DeviceActivityViewModel: NSObject, ObservableObject, NFCNDEFReaderSessionD
     }
     
     // Application Monitoring logic
-    
-    // Method to update the selection
-    func updateSelection(_ newSelection: FamilyActivitySelection) {
-        print("updating app selection")
-        self.selectionModel.selectionToDiscourage = newSelection
-    }
     
     func toggleApplicationMode() {
         DispatchQueue.main.async {

@@ -35,11 +35,19 @@ class UserDefaultsPersistenceService: PersistenceServiceProtocol {
     func saveSelection(_ selection: FamilyActivitySelection) {
         if let data = try? JSONEncoder().encode(selection) {
             storage.set(data, forKey: "discouragedApplications")
+            
+            print("updated new selection:")
+            for application in selection.applications {
+                print("\(application.localizedDisplayName?.description ?? "unknown name")")
+            }
         }
     }
     
     func loadSelection() -> FamilyActivitySelection? {
-        guard let data = storage.data(forKey: "discouragedApplications") else { return nil }
+        guard let data = storage.data(forKey: "discouragedApplications") else {
+            print("failed to get selection")
+            return nil
+        }
         return try? JSONDecoder().decode(FamilyActivitySelection.self, from: data)
     }
 }
