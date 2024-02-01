@@ -31,11 +31,6 @@ class DeviceActivityViewModel: NSObject, ObservableObject, NFCNDEFReaderSessionD
         set { selectionModel.selectionToDiscourage = newValue }
     }
     
-    // Method to update selectionToDiscourage
-    func updateSelection(_ newSelection: FamilyActivitySelection) {
-        self.selectionModel.selectionToDiscourage = newSelection
-    }
-    
     private let persistenceService = UserDefaultsPersistenceService.shared
     private let myMonitor = DeviceActivityMonitorExtension()
     
