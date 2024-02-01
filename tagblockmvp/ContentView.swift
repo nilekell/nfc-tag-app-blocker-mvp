@@ -32,8 +32,10 @@ struct ContentView: View {
             Text("Restricted mode: \(viewModel.appModeModel.isLocked.description)")
                 .padding()
         }
-        .onChange(of: viewModel.selectionModel.selectionToDiscourage) { newSelection in
-            viewModel.updateSelection(newSelection)
+        .onAppear {
+            Task {
+                await viewModel.setupMonitoring()
+            }
         }
     }
     

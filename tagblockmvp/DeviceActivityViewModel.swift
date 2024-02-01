@@ -39,6 +39,7 @@ class DeviceActivityViewModel: NSObject, ObservableObject, NFCNDEFReaderSessionD
     private let persistenceService = UserDefaultsPersistenceService.shared
     private let myMonitor = DeviceActivityMonitorExtension()
     
+    private let ac = AuthorizationCenter.shared
     private let center = DeviceActivityCenter()
     private let schedule = DeviceActivitySchedule(
         intervalStart: DateComponents(hour: 0, minute: 0),
@@ -52,14 +53,18 @@ class DeviceActivityViewModel: NSObject, ObservableObject, NFCNDEFReaderSessionD
         // getting data to determine whether app is in locked mode or not
         let isLocked = persistenceService.loadIsLocked()
         self.appModeModel = AppModeModel(isLocked: isLocked)
-        do {
-            try self.center.startMonitoring(.daily, during: schedule)
-        } catch {
-            print("Failed to start monitoring.")
-        }
     }
     
     // Application Monitoring logic
+    
+    func setupMonitoring() async {
+        do {
+            try await ac.requestAuthorization(for: .individual)
+            try center.startMonitoring(.daily, during: schedule)
+        } catch {
+            print("Failed to start monitoring: \(error)")
+        }
+    }
     
     func toggleApplicationMode() {
         DispatchQueue.main.async {
