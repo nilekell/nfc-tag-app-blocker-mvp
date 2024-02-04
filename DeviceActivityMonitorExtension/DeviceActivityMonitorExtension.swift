@@ -10,19 +10,32 @@ import ManagedSettings
 import FamilyControls
 import Foundation
 
-// Optionally override any of the functions below.
-// Make sure that your class name matches the NSExtensionPrincipalClass in your Info.plist.
 class DeviceActivityMonitorExtension: DeviceActivityMonitor {
     let store = ManagedSettingsStore()
-    let selectionModel = SelectionModel.shared
-    
+    let chooseModeViewModel = ChooseModeViewModel.shared
+
     let access: String = "Main app has access to DeviceActivityMonitorExtension"
     
     func setApplicationsToShield() {
         print("DeviceActivityMonitor: setApplicationsToShield()")
-        let applications = selectionModel.selectionToDiscourage.applicationTokens
-        let categories = selectionModel.selectionToDiscourage.categoryTokens
-        let webCategories = selectionModel.selectionToDiscourage.webDomainTokens
+        
+        var applications: Set<ApplicationToken> = Set()
+        var categories: Set<ActivityCategoryToken> = Set()
+        var webCategories: Set<WebDomainToken> = Set()
+
+        if let selectionString = chooseModeViewModel.currentlySelectedMode?.selection {
+            if let currentFamilyActivitySelection = FamilyActivitySelection.from(jsonString: selectionString) {
+                applications = currentFamilyActivitySelection.applicationTokens
+                categories = currentFamilyActivitySelection.categoryTokens
+                webCategories = currentFamilyActivitySelection.webDomainTokens
+            } else {
+                print("Failed to unwrap: currentFamilyActivitySelection")
+                return
+            }
+        } else {
+            print("Failed to unwrap: selectionString")
+            return
+        }
         
         if applications.isEmpty {
             print("No applications to restrict")

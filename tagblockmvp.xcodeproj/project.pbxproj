@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,15 +12,15 @@
 		227C44112B66673C00BC7BB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 227C44102B66673C00BC7BB5 /* Assets.xcassets */; };
 		227C44142B66673C00BC7BB5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 227C44132B66673C00BC7BB5 /* Preview Assets.xcassets */; };
 		227C445A2B66AA0900BC7BB5 /* DeviceActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C44592B66AA0900BC7BB5 /* DeviceActivityViewModel.swift */; };
-		227C445E2B66AD0400BC7BB5 /* SelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C445D2B66AD0400BC7BB5 /* SelectionModel.swift */; };
 		227C44602B66F30E00BC7BB5 /* AppModeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C445F2B66F30E00BC7BB5 /* AppModeModel.swift */; };
-		227C44622B66F79C00BC7BB5 /* PersistenceServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C44612B66F79C00BC7BB5 /* PersistenceServiceProtocol.swift */; };
+		227C44622B66F79C00BC7BB5 /* UserDefaultsPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C44612B66F79C00BC7BB5 /* UserDefaultsPersistenceService.swift */; };
 		227C446C2B67EF6A00BC7BB5 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227C446B2B67EF6A00BC7BB5 /* DeviceActivity.framework */; };
 		227C446F2B67EF6A00BC7BB5 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C446E2B67EF6A00BC7BB5 /* DeviceActivityMonitorExtension.swift */; };
 		227C44742B67EF6A00BC7BB5 /* DeviceActivityMonitorExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 227C44692B67EF6A00BC7BB5 /* DeviceActivityMonitorExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		229DEABC2B6F8DC600935EC8 /* tagblockmvp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22E86C282B6E701B00CC002F /* tagblockmvp.xcdatamodeld */; };
+		229DEABE2B6FCD2700935EC8 /* AddModeBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229DEABD2B6FCD2700935EC8 /* AddModeBottomSheetView.swift */; };
 		22B5BF792B67F2A7007BDB6D /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C446E2B67EF6A00BC7BB5 /* DeviceActivityMonitorExtension.swift */; };
-		22B5BF7B2B67F2D9007BDB6D /* SelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C445D2B66AD0400BC7BB5 /* SelectionModel.swift */; };
-		22B5BF7C2B67F2E9007BDB6D /* PersistenceServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C44612B66F79C00BC7BB5 /* PersistenceServiceProtocol.swift */; };
+		22B5BF7C2B67F2E9007BDB6D /* UserDefaultsPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C44612B66F79C00BC7BB5 /* UserDefaultsPersistenceService.swift */; };
 		22B5BF842B68080F007BDB6D /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B5BF832B68080F007BDB6D /* ManagedSettings.framework */; };
 		22B5BF862B68080F007BDB6D /* ManagedSettingsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B5BF852B68080F007BDB6D /* ManagedSettingsUI.framework */; };
 		22B5BF892B68080F007BDB6D /* ShieldConfigurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B5BF882B68080F007BDB6D /* ShieldConfigurationExtension.swift */; };
@@ -32,6 +32,13 @@
 		22B5BFA42B680E0A007BDB6D /* ShieldActionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B5BF9A2B68098D007BDB6D /* ShieldActionExtension.swift */; };
 		22B5BFA62B683B26007BDB6D /* DeviceActivityName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B5BFA52B683B26007BDB6D /* DeviceActivityName.swift */; };
 		22B5BFA72B683B26007BDB6D /* DeviceActivityName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B5BFA52B683B26007BDB6D /* DeviceActivityName.swift */; };
+		22CE00D52B6EEB1D00E5F7EF /* ChooseModeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E86C2F2B6EBA6200CC002F /* ChooseModeViewModel.swift */; };
+		22E86C2A2B6E701B00CC002F /* tagblockmvp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22E86C282B6E701B00CC002F /* tagblockmvp.xcdatamodeld */; };
+		22E86C2C2B6E7B0A00CC002F /* ChooseModeBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E86C2B2B6E7B0A00CC002F /* ChooseModeBottomSheetView.swift */; };
+		22E86C2E2B6EB5EC00CC002F /* NFCReaderSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E86C2D2B6EB5EC00CC002F /* NFCReaderSessionManager.swift */; };
+		22E86C302B6EBA6200CC002F /* ChooseModeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E86C2F2B6EBA6200CC002F /* ChooseModeViewModel.swift */; };
+		22E86C322B6ED13C00CC002F /* FamilyActivitySelectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E86C312B6ED13C00CC002F /* FamilyActivitySelectionExtension.swift */; };
+		22E86C332B6ED56D00CC002F /* FamilyActivitySelectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E86C312B6ED13C00CC002F /* FamilyActivitySelectionExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,14 +90,14 @@
 		227C44512B667C5800BC7BB5 /* tagblockmvp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tagblockmvp.entitlements; sourceTree = "<group>"; };
 		227C44522B667CAB00BC7BB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		227C44592B66AA0900BC7BB5 /* DeviceActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityViewModel.swift; sourceTree = "<group>"; };
-		227C445D2B66AD0400BC7BB5 /* SelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionModel.swift; sourceTree = "<group>"; };
 		227C445F2B66F30E00BC7BB5 /* AppModeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModeModel.swift; sourceTree = "<group>"; };
-		227C44612B66F79C00BC7BB5 /* PersistenceServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceServiceProtocol.swift; sourceTree = "<group>"; };
+		227C44612B66F79C00BC7BB5 /* UserDefaultsPersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPersistenceService.swift; sourceTree = "<group>"; };
 		227C44692B67EF6A00BC7BB5 /* DeviceActivityMonitorExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DeviceActivityMonitorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		227C446B2B67EF6A00BC7BB5 /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
 		227C446E2B67EF6A00BC7BB5 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
 		227C44702B67EF6A00BC7BB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		227C44712B67EF6A00BC7BB5 /* DeviceActivityMonitorExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeviceActivityMonitorExtension.entitlements; sourceTree = "<group>"; };
+		229DEABD2B6FCD2700935EC8 /* AddModeBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddModeBottomSheetView.swift; sourceTree = "<group>"; };
 		22B5BF822B68080F007BDB6D /* ShieldConfigurationExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShieldConfigurationExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		22B5BF832B68080F007BDB6D /* ManagedSettings.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettings.framework; path = System/Library/Frameworks/ManagedSettings.framework; sourceTree = SDKROOT; };
 		22B5BF852B68080F007BDB6D /* ManagedSettingsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettingsUI.framework; path = System/Library/Frameworks/ManagedSettingsUI.framework; sourceTree = SDKROOT; };
@@ -102,6 +109,11 @@
 		22B5BF9C2B68098D007BDB6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22B5BF9D2B68098D007BDB6D /* ShieldActionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShieldActionExtension.entitlements; sourceTree = "<group>"; };
 		22B5BFA52B683B26007BDB6D /* DeviceActivityName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityName.swift; sourceTree = "<group>"; };
+		22E86C292B6E701B00CC002F /* tagblockmvp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tagblockmvp.xcdatamodel; sourceTree = "<group>"; };
+		22E86C2B2B6E7B0A00CC002F /* ChooseModeBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseModeBottomSheetView.swift; sourceTree = "<group>"; };
+		22E86C2D2B6EB5EC00CC002F /* NFCReaderSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCReaderSessionManager.swift; sourceTree = "<group>"; };
+		22E86C2F2B6EBA6200CC002F /* ChooseModeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseModeViewModel.swift; sourceTree = "<group>"; };
+		22E86C312B6ED13C00CC002F /* FamilyActivitySelectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyActivitySelectionExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,13 +179,18 @@
 			isa = PBXGroup;
 			children = (
 				227C44522B667CAB00BC7BB5 /* Info.plist */,
-				227C44612B66F79C00BC7BB5 /* PersistenceServiceProtocol.swift */,
+				227C44612B66F79C00BC7BB5 /* UserDefaultsPersistenceService.swift */,
 				227C44512B667C5800BC7BB5 /* tagblockmvp.entitlements */,
 				227C440C2B66673B00BC7BB5 /* tagblockmvpApp.swift */,
 				227C440E2B66673B00BC7BB5 /* ContentView.swift */,
+				22E86C282B6E701B00CC002F /* tagblockmvp.xcdatamodeld */,
 				227C445F2B66F30E00BC7BB5 /* AppModeModel.swift */,
 				22B5BFA52B683B26007BDB6D /* DeviceActivityName.swift */,
-				227C445D2B66AD0400BC7BB5 /* SelectionModel.swift */,
+				22E86C2D2B6EB5EC00CC002F /* NFCReaderSessionManager.swift */,
+				22E86C312B6ED13C00CC002F /* FamilyActivitySelectionExtension.swift */,
+				22E86C2B2B6E7B0A00CC002F /* ChooseModeBottomSheetView.swift */,
+				229DEABD2B6FCD2700935EC8 /* AddModeBottomSheetView.swift */,
+				22E86C2F2B6EBA6200CC002F /* ChooseModeViewModel.swift */,
 				227C44592B66AA0900BC7BB5 /* DeviceActivityViewModel.swift */,
 				227C44102B66673C00BC7BB5 /* Assets.xcassets */,
 				227C44122B66673C00BC7BB5 /* Preview Content */,
@@ -329,7 +346,7 @@
 				};
 			};
 			buildConfigurationList = 227C44042B66673B00BC7BB5 /* Build configuration list for PBXProject "tagblockmvp" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -387,15 +404,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22E86C2E2B6EB5EC00CC002F /* NFCReaderSessionManager.swift in Sources */,
 				227C440F2B66673B00BC7BB5 /* ContentView.swift in Sources */,
+				22E86C2A2B6E701B00CC002F /* tagblockmvp.xcdatamodeld in Sources */,
 				227C445A2B66AA0900BC7BB5 /* DeviceActivityViewModel.swift in Sources */,
+				22E86C302B6EBA6200CC002F /* ChooseModeViewModel.swift in Sources */,
+				22E86C322B6ED13C00CC002F /* FamilyActivitySelectionExtension.swift in Sources */,
 				227C440D2B66673B00BC7BB5 /* tagblockmvpApp.swift in Sources */,
 				22B5BF792B67F2A7007BDB6D /* DeviceActivityMonitorExtension.swift in Sources */,
-				227C44622B66F79C00BC7BB5 /* PersistenceServiceProtocol.swift in Sources */,
+				227C44622B66F79C00BC7BB5 /* UserDefaultsPersistenceService.swift in Sources */,
+				22E86C2C2B6E7B0A00CC002F /* ChooseModeBottomSheetView.swift in Sources */,
 				227C44602B66F30E00BC7BB5 /* AppModeModel.swift in Sources */,
 				22B5BF922B68082D007BDB6D /* ShieldConfigurationExtension.swift in Sources */,
-				227C445E2B66AD0400BC7BB5 /* SelectionModel.swift in Sources */,
 				22B5BFA42B680E0A007BDB6D /* ShieldActionExtension.swift in Sources */,
+				229DEABE2B6FCD2700935EC8 /* AddModeBottomSheetView.swift in Sources */,
 				22B5BFA62B683B26007BDB6D /* DeviceActivityName.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,10 +426,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22B5BF7B2B67F2D9007BDB6D /* SelectionModel.swift in Sources */,
+				22CE00D52B6EEB1D00E5F7EF /* ChooseModeViewModel.swift in Sources */,
+				22E86C332B6ED56D00CC002F /* FamilyActivitySelectionExtension.swift in Sources */,
 				22B5BFA72B683B26007BDB6D /* DeviceActivityName.swift in Sources */,
-				22B5BF7C2B67F2E9007BDB6D /* PersistenceServiceProtocol.swift in Sources */,
+				22B5BF7C2B67F2E9007BDB6D /* UserDefaultsPersistenceService.swift in Sources */,
 				227C446F2B67EF6A00BC7BB5 /* DeviceActivityMonitorExtension.swift in Sources */,
+				229DEABC2B6F8DC600935EC8 /* tagblockmvp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +618,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nilekell.tagblockmvp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -627,6 +655,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nilekell.tagblockmvp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -844,6 +876,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		22E86C282B6E701B00CC002F /* tagblockmvp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				22E86C292B6E701B00CC002F /* tagblockmvp.xcdatamodel */,
+			);
+			currentVersion = 22E86C292B6E701B00CC002F /* tagblockmvp.xcdatamodel */;
+			path = tagblockmvp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 227C44012B66673B00BC7BB5 /* Project object */;
 }

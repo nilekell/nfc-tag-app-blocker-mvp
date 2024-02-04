@@ -10,27 +10,30 @@ import FamilyControls
 
 struct ContentView: View {
     
-    @StateObject var viewModel = DeviceActivityViewModel.shared
-    @State var isPresented = false
+    @EnvironmentObject var viewModel: DeviceActivityViewModel
+    @State private var isChooseModeSheetPresented = false
     
     var body: some View {
         VStack {
-            Text("App Blocker")
+            Text("Tenet")
                 .padding()
-            
-            Button("Select apps to block") { isPresented = true }
-                .padding()
-                .disabled(viewModel.appModeModel.isLocked)
-                .familyActivityPicker(isPresented: $isPresented,
-                                      selection: $viewModel.selectionToDiscourage)
             
             Button(action: scanButtonPressed, label: {
                 Text("Scan tag")
             })
             .padding()
             
+            Button("Choose mode") {
+                isChooseModeSheetPresented = true
+            }
+            .padding()
+            .disabled(viewModel.appModeModel.isLocked)
+            
             Text("Restricted mode: \(viewModel.appModeModel.isLocked.description)")
                 .padding()
+        }
+        .sheet(isPresented: $isChooseModeSheetPresented) {
+            ChooseModeBottomSheetView(isPresented: $isChooseModeSheetPresented)
         }
         .onAppear {
             Task {

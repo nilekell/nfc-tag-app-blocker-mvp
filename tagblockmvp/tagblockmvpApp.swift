@@ -12,6 +12,7 @@ struct tagblockmvpApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(DeviceActivityViewModel())
         }
     }
 }
