@@ -34,6 +34,9 @@ struct ChooseModeBottomSheetView: View {
                     .onDelete(perform: removeSelectionMode)
                     .environment(\.editMode, $editMode)
                 }
+                .toolbar {
+                    EditButton()
+                }
                 .sheet(isPresented: $isAddModeSheetPresented) {
                     AddModeBottomSheetView(isPresented: $isAddModeSheetPresented)
                 }
@@ -54,9 +57,6 @@ struct ChooseModeBottomSheetView: View {
                 .familyActivityPicker(isPresented: $showingActivityPicker,
                                       selection: $chooseModeViewModel.selection)
             }
-        }
-        .toolbar {
-            EditButton()
         }
     }
     
