@@ -15,7 +15,11 @@ class ChooseModeViewModel: ObservableObject {
     
     @Published var currentlySelectedMode: SelectionModeEntity?
     @Published var savedSelectionModeEntities: [SelectionModeEntity] = []
-    @Published var selection = FamilyActivitySelection()
+    @Published var selection = FamilyActivitySelection() {
+        didSet {
+            updateSelectionForCurrentlySelectedMode(selection: selection)
+        }
+    }
     
     var container: NSPersistentContainer?
     private let persistenceService = UserDefaultsPersistenceService.shared
@@ -36,6 +40,7 @@ class ChooseModeViewModel: ObservableObject {
         currentlySelectedMode = fetchCurrentlySelectedMode()
         // Get FamilyActivitySelection for currently selected mode
         selection = getFamilyActivitySelectionFromSelectionModeEntity()
+        // Get all selection mode entities from core data
         fetchSelectionModes()
     }
     
@@ -47,6 +52,7 @@ class ChooseModeViewModel: ObservableObject {
         do {
             let results = try container!.viewContext.fetch(request)
             if results.isEmpty {
+                print("creating default selection mode")
                 let newDefaultMode = SelectionModeEntity(context: container!.viewContext)
                 newDefaultMode.name = "default"
                 newDefaultMode.id = UUID()
@@ -119,6 +125,71 @@ class ChooseModeViewModel: ObservableObject {
         }
     }
     
+    func updateCurrentlySelectedMode(selectionMode: SelectionModeEntity) {
+        // checking if tapped mode is already the current
+        if (selectionMode.id == currentlySelectedMode?.id) {
+            print("\(selectionMode.name ?? "unknown") is already the currently selected mode")
+            return
+        }
+        
+        if let selectionModeIdString = selectionMode.id?.uuidString {
+            persistenceService.saveCurrentSelectionMode(selectionModeKey: selectionModeIdString)
+            currentlySelectedMode = selectionMode
+            
+            // Unwrap 'selectionMode.selection' safely before using it
+            if let selectionString = selectionMode.selection {
+                // updating family activity selection
+                if let newSelection = FamilyActivitySelection.from(jsonString: selectionString) {
+                    selection = newSelection
+                    print("updated selection with \(selection.applicationTokens.count) applications")
+                } else {
+                    print("Could not decode FamilyActivitySelection from JSON string")
+                }
+            } else {
+                print("SelectionMode selection string is nil, setting 'selection' to a new FamilyActivitySelection")
+                selection = FamilyActivitySelection()
+            }
+        } else {
+            print("Failed to update currently selected mode")
+            return
+        }
+    }
+    
+    func updateSelectionForCurrentlySelectedMode(selection: FamilyActivitySelection) {
+        print("updateSelectionForCurrentlySelectedMode")
+        
+        guard let context = container?.viewContext else {
+            print("No Managed Object Context available")
+            return
+        }
+        
+        // Ensure we have a currently selected mode
+        guard let currentlySelectedModeId = currentlySelectedMode?.id else {
+            print("No currently selected mode")
+            return
+        }
+        
+        // Fetch the SelectionModeEntity with the matching ID
+        let request: NSFetchRequest<SelectionModeEntity> = SelectionModeEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", currentlySelectedModeId as CVarArg)
+        
+        
+        do {
+            let results = try context.fetch(request)
+            if let selectionModeToUpdate = results.first {
+                // Update the selection string
+                selectionModeToUpdate.selection = selection.jsonString()
+                
+                saveData()
+                print("Selection updated for currently selected mode")
+            } else {
+                print("No matching SelectionModeEntity found")
+            }
+        } catch {
+            print("Error updating selection: \(error)")
+        }
+    }
+    
     func saveData() {
         do {
             try container!.viewContext.save()
@@ -148,6 +219,12 @@ class ChooseModeViewModel: ObservableObject {
 
             // Assuming 'id' is unique, there should be at most one result
             if let entityToDelete = results.first {
+                // resetting currently selected mode to default, if the mode to be deleted is the default id
+                if (entityToDelete.id == fetchCurrentlySelectedMode().id) {
+                    currentlySelectedMode = fetchDefaultSelectionMode()
+                }
+                
+                // deleting selection mode entity
                 context.delete(entityToDelete)
 
                 saveData()

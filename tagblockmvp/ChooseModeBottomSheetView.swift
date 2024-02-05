@@ -19,6 +19,7 @@ struct ChooseModeBottomSheetView: View {
     
     
     var body: some View {
+        // navigation stack required for edit mode to work
         NavigationStack {
             VStack {
                 Text("Choose Mode")
@@ -28,8 +29,16 @@ struct ChooseModeBottomSheetView: View {
                 // Displaying the list of SelectionModeEntities
                 List {
                     ForEach(chooseModeViewModel.savedSelectionModeEntities, id: \.id) { selectionMode in
-                        Text(selectionMode.name ?? "Unknown")
-                            .deleteDisabled(selectionMode.name == "default")
+                        Button(action: {
+                            selectionModeIsTapped(selectionMode: selectionMode)
+                        }) {
+                            HStack {
+                                Text(selectionMode.name ?? "unknown")
+                                Spacer()
+                                Image(systemName: chooseModeViewModel.currentlySelectedMode?.id == selectionMode.id ? "checkmark.circle.fill" : "circle")
+                            }
+                        }
+                        .deleteDisabled(selectionMode.name == "default")
                     }
                     .onDelete(perform: removeSelectionMode)
                     .environment(\.editMode, $editMode)
@@ -70,5 +79,9 @@ struct ChooseModeBottomSheetView: View {
                 return
             }
         }
+    }
+        
+    func selectionModeIsTapped(selectionMode: SelectionModeEntity) {
+        chooseModeViewModel.updateCurrentlySelectedMode(selectionMode: selectionMode)
     }
 }
