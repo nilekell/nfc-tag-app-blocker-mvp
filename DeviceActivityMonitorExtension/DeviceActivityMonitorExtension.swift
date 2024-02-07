@@ -55,7 +55,6 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
             store.shield.webDomains = webCategories
         }
         
-        store.dateAndTime.requireAutomaticDateAndTime = true
         store.application.denyAppRemoval = true
         
         print("num blocked applications: \(applications.count)")
