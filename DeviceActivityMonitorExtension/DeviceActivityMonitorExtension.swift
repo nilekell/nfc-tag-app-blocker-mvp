@@ -67,9 +67,7 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         store.shield.applicationCategories = nil
         store.shield.webDomainCategories = nil
         store.shield.webDomains = nil
-        
-        store.dateAndTime.requireAutomaticDateAndTime = nil
-        store.application.denyAppRemoval = nil
+        store.application.denyAppRemoval = false
         
         print("num blocked applications: \(store.shield.applications?.count ?? 0)")
     }
